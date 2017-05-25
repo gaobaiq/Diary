@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- application theme -->
+    <style name="AppTheme" parent="@style/AppBaseTheme" />
+
+    <!-- Base application theme. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- toolbar（actionbar）颜色 -->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <!-- 对应EditText编辑时、RadioButton选中、CheckBox等选中时的颜色 -->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <!-- 窗口的背景颜色 -->
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <!--控制头部据appbar的样式-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <!--用于控制toolbar溢出菜单的样式-->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="MainItemStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="MainImageStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+</resources>

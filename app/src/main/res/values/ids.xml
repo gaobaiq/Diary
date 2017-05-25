@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="save" type="id"/>
+    <item name="login_success" type="id"/>
+    <item name="logout_success" type="id"/>
+    <item name="binding_success" type="id"/>
+
+    <item name="user_info" type="id"/>
+</resources>

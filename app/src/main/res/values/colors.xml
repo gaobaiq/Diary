@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#25ab38</color><!--导航栏主色调-->
+    <color name="colorPrimaryDark">#25ab38</color><!--状态栏颜色-->
+    <color name="colorAccent">#FF4081</color><!--导航栏 - 强调色-->
+
+    <color name="transparent">#00000000</color><!--无色透明-->
+    <color name="white">#ffffff</color><!--白色-->
+    <color name="black">#000000</color><!-- 黑色-->
+
+    <color name="colorTitle">#2e2e2e</color><!--主标题颜色-->
+    <color name="colorSubTitle">#a3a3a3</color><!--副标题颜色-->
+    <color name="colorRed">#ff5c36</color><!--红色-->
+    <color name="colorBlue">#3366ff</color><!--蓝色-->
+    <color name="colorPink">#ffae9b</color><!--粉色-->
+    <color name="colorLine">#e7e7e7</color><!--线条颜色-->
+    <color name="colorBg">#f7f7f7</color><!--背景颜色-->
+    <color name="color_2c3834">#4b5e58</color>
+    <color name="colorSky">#57c9e8</color>
+
+
+    <color name="colorGreen">#25ab38</color><!--绿色-->
+    <color name="colorOrange">#ffb400</color><!--橙色-->
+    <color name="colorPurple">#735de6</color><!--紫色-->
+    <color name="colorGray">#a3a3a3</color><!--灰色-->
+    <color name="colorBackground">#eeeeee</color><!--背景色-->
+    <color name="colorBorder">#d9d9d9</color><!--线框线条颜色-->
+    <color name="colorTitleBg">#ffffff</color><!--主标题背景颜色-->
+</resources>
