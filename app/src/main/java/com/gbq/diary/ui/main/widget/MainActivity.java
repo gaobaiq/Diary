@@ -1,12 +1,14 @@
 package com.gbq.diary.ui.main.widget;
 
-import android.support.v7.widget.Toolbar;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.gbq.diary.R;
 import com.gbq.diary.base.BaseActivity;
 import com.gbq.diary.ui.main.presenter.impl.IMainPresenterImpl;
 import com.gbq.diary.ui.main.view.IMainView;
+import com.gbq.diary.widget.toolbar.BaseBar;
+import com.gbq.library.utils.ToastUtils;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -19,7 +21,7 @@ import butterknife.OnClick;
 public class MainActivity extends BaseActivity<IMainView, IMainPresenterImpl> implements IMainView {
 
     @Bind(R.id.toolbar)
-    Toolbar toolbar;
+    BaseBar toolbar;
 
     @Override
     protected int initLayout() {
@@ -38,6 +40,7 @@ public class MainActivity extends BaseActivity<IMainView, IMainPresenterImpl> im
 
     @Override
     protected void initViewAndData() {
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
         initToolBar(toolbar, false, "");
     }
 
@@ -48,31 +51,31 @@ public class MainActivity extends BaseActivity<IMainView, IMainPresenterImpl> im
 
     @Override
     public void onMyGithubClick() {
-        //ToastUtils.ToastMessage(this, "我的github");
+        WebActivity.openActivity(this, "我的github", "https://github.com/gaobaiq");
     }
 
     @Override
     public void onOkamiClick() {
-        //ToastUtils.ToastMessage(this, "大神杰作");
+        ToastUtils.ToastMessage(this, "大神杰作");
     }
 
     @Override
     public void onToolsClick() {
-        //ToastUtils.ToastMessage(this, "常用工具");
+        ToastUtils.ToastMessage(this, "常用工具");
     }
 
     @Override
     public void onCustomClick() {
-        //ToastUtils.ToastMessage(this, "自定义");
+        ToastUtils.ToastMessage(this, "自定义");
     }
 
     @Override
     public void onOtherClick() {
-        //ToastUtils.ToastMessage(this, "其他");
+        ToastUtils.ToastMessage(this, "其他");
     }
 
     @Override
     public void onMyInfoClick() {
-        //ToastUtils.ToastMessage(this, "我的信息");
+        ToastUtils.ToastMessage(this, "我的信息");
     }
 }

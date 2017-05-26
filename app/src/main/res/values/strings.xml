@@ -3,4 +3,13 @@
 
     <string name="simple_view_behavior">com.gbq.diary.widget.customview.SimpleViewBehavior</string>
     <string name="translate_up_down_behavior">com.gbq.diary.widget.customview.TranslateUpDownBehavior</string>
+
+
+    <string name="save">保存</string>
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
+    <string name="confirm">确定</string>
+    <string name="delete">删除</string>
+
+    <string name="title_web">网页</string>
 </resources>

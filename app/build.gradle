@@ -34,4 +34,11 @@ dependencies {
     compile project(':Glibrary:library')
     // 首页效果
     compile 'com.android.support:design:' + supportVersion
+    // 封装的webview
+    compile 'com.github.lzyzsd:jsbridge:1.0.4'
+}
+
+repositories {
+    // ...
+    maven { url "https://jitpack.io" }
 }

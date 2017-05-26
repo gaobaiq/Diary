@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -16,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.gbq.diary.R;
+import com.gbq.diary.widget.toolbar.BaseBar;
 import com.gbq.library.systembar.SystemBarTintManager;
 import com.gbq.library.widget.dialog.LoadingDialog;
 
@@ -226,13 +226,13 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
     /**
      * 初始化 Toolbar
      * */
-    public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, String title) {
+    public void initToolBar(BaseBar toolbar, boolean homeAsUpEnabled, String title) {
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);
     }
 
-    public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, int resTitle) {
+    public void initToolBar(BaseBar toolbar, boolean homeAsUpEnabled, int resTitle) {
         initToolBar(toolbar, homeAsUpEnabled, getString(resTitle));
     }
 
