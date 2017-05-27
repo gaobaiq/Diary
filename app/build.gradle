@@ -36,6 +36,14 @@ dependencies {
     compile 'com.android.support:design:' + supportVersion
     // 封装的webview
     compile 'com.github.lzyzsd:jsbridge:1.0.4'
+
+    // 第三方crash异常捕捉
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+
+    // 图片选择
+    compile 'com.lzy.widget:ninegridview:0.2.1'
+    compile 'com.lzy.widget:imagepicker:0.3.2'
 }
 
 repositories {

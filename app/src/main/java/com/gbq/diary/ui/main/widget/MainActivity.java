@@ -7,6 +7,7 @@ import com.gbq.diary.R;
 import com.gbq.diary.base.BaseActivity;
 import com.gbq.diary.ui.main.presenter.impl.IMainPresenterImpl;
 import com.gbq.diary.ui.main.view.IMainView;
+import com.gbq.diary.ui.okami.widget.OkamiActivity;
 import com.gbq.diary.widget.toolbar.BaseBar;
 import com.gbq.library.utils.ToastUtils;
 
@@ -56,7 +57,7 @@ public class MainActivity extends BaseActivity<IMainView, IMainPresenterImpl> im
 
     @Override
     public void onOkamiClick() {
-        ToastUtils.ToastMessage(this, "大神杰作");
+        OkamiActivity.openActivity(this);
     }
 
     @Override

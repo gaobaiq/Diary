@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_height"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/medium_text_size"
+        tools:text="下拉刷新RecyclerView"/>
+
+    <TextView
+        android:id="@+id/tv_remarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorGray"
+        android:textSize="@dimen/small_text_size"
+        tools:text="下拉刷新RecyclerView"/>
+
+    <View style="@style/LineHorizontal"
+        android:layout_marginTop="@dimen/margin_1"/>
+</LinearLayout>

@@ -46,4 +46,19 @@
         <item name="android:singleLine">true</item>
     </style>
 
+    <!-- 水平分界线 -->
+    <style name="LineHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_height</item>
+        <item name="android:background">@color/colorLine</item>
+    </style>
+
+
+    <!-- 垂直分界线 -->
+    <style name="LineVertical">
+        <item name="android:layout_width">@dimen/line_height</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorLine</item>
+    </style>
+
 </resources>

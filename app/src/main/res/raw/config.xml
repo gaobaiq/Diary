@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <system>
+        <unicode>UTF-8</unicode>
+        <!--正式服务器-->
+        <app_sign>dd</app_sign>
+
+        <!--服务器地址-->
+        <server>http://server.jeasonlzy.com/</server>
+    </system>
+</config>

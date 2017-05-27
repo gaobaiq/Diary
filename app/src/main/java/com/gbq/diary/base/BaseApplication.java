@@ -2,13 +2,16 @@ package com.gbq.diary.base;
 
 import android.app.Application;
 
+import com.gbq.diary.R;
 import com.gbq.library.AppManager;
+import com.gbq.library.FrameConfig;
 import com.gbq.library.okgo.OkGo;
 import com.gbq.library.okgo.cahce.CacheEntity;
 import com.gbq.library.okgo.cahce.CacheMode;
 import com.gbq.library.okgo.cookie.store.PersistentCookieStore;
 import com.gbq.library.okgo.model.HttpHeaders;
 import com.gbq.library.okgo.model.HttpParams;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.logging.Level;
 
@@ -31,6 +34,8 @@ public class BaseApplication extends Application {
 
         // 必须调用初始化
         initOkGo();
+
+        CrashReport.initCrashReport(getApplicationContext(), "fe00444125", false);
     }
 
     /**
@@ -48,6 +53,7 @@ public class BaseApplication extends Application {
 
         OkGo.init(this);
         mOkGo = OkGo.getInstance();
+        FrameConfig.initSystemConfig(this, R.raw.config);
 
         //以下设置的所有参数是全局参数,同样的参数可以在请求的时候再设置一遍,那么对于该请求来讲,请求中的参数会覆盖全局参数
         //好处是全局参数统一,特定请求可以特别定制参数

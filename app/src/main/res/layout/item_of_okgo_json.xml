@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorGray"
+        android:padding="@dimen/margin_1">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_text_size"
+            android:textColor="@color/colorTitle"
+            android:textStyle="bold"
+            android:text="AAAA"/>
+
+        <TextView
+            android:id="@+id/tv_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_padding"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="请求方式:GET"/>
+
+        <TextView
+            android:id="@+id/tv_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_padding"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="请求地址:http://"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorBackground"
+        android:padding="@dimen/margin_1">
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="英文名称：Kuzan"/>
+
+        <TextView
+            android:id="@+id/tv_user_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_padding"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="中文名称：库赞"/>
+
+        <TextView
+            android:id="@+id/tv_user_qq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_padding"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="QQ：921155301"/>
+
+        <TextView
+            android:id="@+id/tv_user_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_padding"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="email：921155301@qq.com"/>
+
+        <TextView
+            android:id="@+id/tv_user_github"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_padding"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="github：921155301@qq.com"/>
+
+        <TextView
+            android:id="@+id/tv_user_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_padding"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="地址：广东珠海"/>
+
+        <TextView
+            android:id="@+id/tv_user_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_padding"
+            android:lines="1"
+            android:textSize="@dimen/micro_text_size"
+            android:textColor="@color/colorTitle"
+            android:text="简介：广东珠海"/>
+    </LinearLayout>
+</LinearLayout>

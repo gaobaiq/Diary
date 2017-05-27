@@ -37,6 +37,26 @@
             android:name=".ui.main.widget.WebActivity"
             android:label="@string/title_web"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.okami.widget.OkamiActivity"
+            android:label="@string/title_okami"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.okami.widget.OkGoActivity"
+            android:label="@string/title_okgo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.okami.widget.OkGoJsonActivity"
+            android:label="@string/title_okgo_json"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.okami.widget.OkGoDownloadActivity"
+            android:label="@string/title_okgo_download"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.okami.widget.OkGoUploadActivity"
+            android:label="@string/title_okgo_upload"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

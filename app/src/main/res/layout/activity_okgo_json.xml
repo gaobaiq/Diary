@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.gbq.diary.widget.toolbar.BaseBar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_gravity="top"
+        toolbar:is_title_text="true"
+        toolbar:is_left="true"
+        toolbar:left_icon="@drawable/icon_back"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_1"
+        android:layout_marginLeft="@dimen/margin_1"
+        android:layout_marginRight="@dimen/margin_1">
+
+        <TextView
+            android:id="@+id/btn_single"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_left_radius_orange_selector"
+            android:gravity="center"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@color/white"
+            android:text="请求json对象"/>
+
+        <TextView
+            android:id="@+id/btn_array"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_right_radius_blue_selector"
+            android:gravity="center"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@color/white"
+            android:text="请求json数组"/>
+    </LinearLayout>
+
+    <com.gbq.library.pullrefresh.PullRefreshRecyclerView
+        android:id="@+id/list_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_1"/>
+
+</LinearLayout>

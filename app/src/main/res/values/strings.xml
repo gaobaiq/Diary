@@ -12,4 +12,9 @@
     <string name="delete">删除</string>
 
     <string name="title_web">网页</string>
+    <string name="title_okami">大神杰作</string>
+    <string name="title_okgo">OkGo网络</string>
+    <string name="title_okgo_json">Json数据解析</string>
+    <string name="title_okgo_download">文件下载</string>
+    <string name="title_okgo_upload">文件上传</string>
 </resources>
