@@ -1,10 +1,10 @@
 package com.gbq.diary.ui.okami.presenter.impl;
 
-import com.gbq.diary.base.BasePresenter;
 import com.gbq.diary.beans.PositionBean;
 import com.gbq.diary.enums.PositionType;
 import com.gbq.diary.ui.okami.presenter.IOkGoPresenter;
 import com.gbq.diary.ui.okami.view.IOkGoView;
+import com.gbq.library.base.BasePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +14,9 @@ import java.util.List;
  * Author: Kuzan
  * Date: 2017/5/26 17:10.
  */
-public class IOkGoPresenterImpl extends BasePresenter<IOkGoView> implements IOkGoPresenter {
+public class OkGoPresenterImpl extends BasePresenter<IOkGoView> implements IOkGoPresenter {
 
-    public IOkGoPresenterImpl() {
+    public OkGoPresenterImpl() {
 
     }
 

@@ -57,6 +57,16 @@
             android:name=".ui.okami.widget.OkGoUploadActivity"
             android:label="@string/title_okgo_upload"
             android:screenOrientation="portrait" />
+
+        <!--常用工具-->
+        <activity
+            android:name=".ui.tools.widget.ToolsListActivity"
+            android:label="@string/title_tools"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxJava2Activity"
+            android:label="@string/title_rxjava2"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

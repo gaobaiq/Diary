@@ -6,8 +6,8 @@ import android.widget.TextView;
 import com.gbq.diary.R;
 import com.gbq.diary.beans.AuthorBean;
 import com.gbq.diary.beans.OkGoRequestDataBean;
-import com.gbq.library.adapter.BaseViewHolder;
-import com.gbq.library.adapter.CommonRecyclerAdapter;
+import com.gbq.library.adapter.recyclerview.BaseViewHolder;
+import com.gbq.library.adapter.recyclerview.CommonRecyclerAdapter;
 
 /**
  * 类说明：okgo请求json数据

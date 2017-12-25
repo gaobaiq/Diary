@@ -2,6 +2,7 @@ package com.gbq.diary.ui.okami.widget;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
@@ -11,14 +12,14 @@ import com.gbq.diary.R;
 import com.gbq.diary.adapter.PositionAdapter;
 import com.gbq.diary.base.BaseActivity;
 import com.gbq.diary.beans.PositionBean;
-import com.gbq.diary.ui.okami.presenter.impl.IOkGoPresenterImpl;
+import com.gbq.diary.ui.okami.presenter.impl.OkGoPresenterImpl;
 import com.gbq.diary.ui.okami.view.IOkGoView;
 import com.gbq.diary.widget.customview.HeadView;
 import com.gbq.diary.widget.toolbar.BaseBar;
 import com.gbq.library.pullrefresh.PullRefreshRecyclerView;
 import com.gbq.library.pullrefresh.PullRefreshUtil;
 import com.gbq.library.pullrefresh.PullRefreshView;
-import com.gbq.library.utils.ToastUtils;
+import com.gbq.library.toast.ToastUtils;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ import butterknife.Bind;
  * Author: Kuzan
  * Date: 2017/5/26 17:18.
  */
-public class OkGoActivity extends BaseActivity<IOkGoView, IOkGoPresenterImpl> implements IOkGoView {
+public class OkGoActivity extends BaseActivity<IOkGoView, OkGoPresenterImpl> implements IOkGoView {
 
     @Bind(R.id.toolbar)
     BaseBar mToolbar;
@@ -44,8 +45,13 @@ public class OkGoActivity extends BaseActivity<IOkGoView, IOkGoPresenterImpl> im
     }
 
     @Override
-    protected IOkGoPresenterImpl initPresenter() {
-        return new IOkGoPresenterImpl();
+    protected OkGoPresenterImpl initPresenter() {
+        return new OkGoPresenterImpl();
+    }
+
+    @Override
+    protected int setStatusBarColor() {
+        return ContextCompat.getColor(this, R.color.colorPrimary);
     }
 
     @Override

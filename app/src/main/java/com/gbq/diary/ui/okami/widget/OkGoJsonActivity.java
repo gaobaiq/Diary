@@ -2,6 +2,7 @@ package com.gbq.diary.ui.okami.widget;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
@@ -11,14 +12,14 @@ import com.gbq.diary.R;
 import com.gbq.diary.adapter.OkGoJsonAdapter;
 import com.gbq.diary.base.BaseActivity;
 import com.gbq.diary.beans.OkGoRequestDataBean;
-import com.gbq.diary.ui.okami.presenter.impl.IOkGoPresenterJsonImpl;
+import com.gbq.diary.ui.okami.presenter.impl.OkGoPresenterJsonImpl;
 import com.gbq.diary.ui.okami.view.IOkGoJsonView;
 import com.gbq.diary.widget.customview.HeadView;
 import com.gbq.diary.widget.toolbar.BaseBar;
 import com.gbq.library.pullrefresh.PullRefreshRecyclerView;
 import com.gbq.library.pullrefresh.PullRefreshUtil;
 import com.gbq.library.pullrefresh.PullRefreshView;
-import com.gbq.library.utils.ToastUtils;
+import com.gbq.library.toast.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ import butterknife.OnClick;
  * Author: Kuzan
  * Date: 2017/5/26 17:32.
  */
-public class OkGoJsonActivity extends BaseActivity<IOkGoJsonView, IOkGoPresenterJsonImpl> implements IOkGoJsonView {
+public class OkGoJsonActivity extends BaseActivity<IOkGoJsonView, OkGoPresenterJsonImpl> implements IOkGoJsonView {
     @Bind(R.id.toolbar)
     BaseBar mToolbar;
     @Bind(R.id.btn_single)
@@ -49,8 +50,13 @@ public class OkGoJsonActivity extends BaseActivity<IOkGoJsonView, IOkGoPresenter
     }
 
     @Override
-    protected IOkGoPresenterJsonImpl initPresenter() {
-        return new IOkGoPresenterJsonImpl();
+    protected OkGoPresenterJsonImpl initPresenter() {
+        return new OkGoPresenterJsonImpl();
+    }
+
+    @Override
+    protected int setStatusBarColor() {
+        return ContextCompat.getColor(this, R.color.colorPrimary);
     }
 
     @Override

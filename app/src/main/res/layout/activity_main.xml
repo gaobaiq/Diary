@@ -131,7 +131,6 @@
                 android:layout_marginRight="@dimen/margin_1"
                 android:orientation="horizontal">
 
-
                 <RelativeLayout
                     android:id="@+id/layout_custom"
                     style="@style/MainItemStyle"

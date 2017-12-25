@@ -2,6 +2,7 @@ package com.gbq.diary.ui.okami.widget;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.text.format.Formatter;
 import android.util.Log;
 import android.widget.Button;
@@ -9,7 +10,7 @@ import android.widget.TextView;
 
 import com.gbq.diary.R;
 import com.gbq.diary.base.BaseActivity;
-import com.gbq.diary.ui.okami.presenter.impl.IOkGoDownloadPresenterImpl;
+import com.gbq.diary.ui.okami.presenter.impl.OkGoDownloadPresenterImpl;
 import com.gbq.diary.ui.okami.view.IOkGoDownloadView;
 import com.gbq.diary.widget.customview.NumberProgressBar;
 import com.gbq.diary.widget.toolbar.BaseBar;
@@ -25,7 +26,7 @@ import static com.gbq.diary.R.id.tvProgress;
  * Author: Kuzan
  * Date: 2017/5/27 13:41.
  */
-public class OkGoDownloadActivity extends BaseActivity<IOkGoDownloadView, IOkGoDownloadPresenterImpl> implements IOkGoDownloadView {
+public class OkGoDownloadActivity extends BaseActivity<IOkGoDownloadView, OkGoDownloadPresenterImpl> implements IOkGoDownloadView {
     @Bind(R.id.toolbar)
     BaseBar mToolbar;
     @Bind(R.id.fileDownload)
@@ -45,8 +46,13 @@ public class OkGoDownloadActivity extends BaseActivity<IOkGoDownloadView, IOkGoD
     }
 
     @Override
-    protected IOkGoDownloadPresenterImpl initPresenter() {
-        return new IOkGoDownloadPresenterImpl();
+    protected OkGoDownloadPresenterImpl initPresenter() {
+        return new OkGoDownloadPresenterImpl();
+    }
+
+    @Override
+    protected int setStatusBarColor() {
+        return ContextCompat.getColor(this, R.color.colorPrimary);
     }
 
     @Override

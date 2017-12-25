@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 
 import com.gbq.diary.R;
 import com.gbq.diary.base.BaseActivity;
-import com.gbq.diary.base.BasePresenter;
 import com.gbq.diary.widget.toolbar.BaseBar;
+import com.gbq.library.base.BasePresenter;
 import com.github.lzyzsd.jsbridge.BridgeWebView;
 
 import butterknife.Bind;
@@ -29,6 +29,12 @@ public class WebActivity extends BaseActivity {
     @Override
     protected int initLayout() {
         return R.layout.activity_web_view;
+    }
+
+    @Override
+    protected boolean translucentStatusBar() {
+        return true;
+
     }
 
     @Override

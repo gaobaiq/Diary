@@ -3,9 +3,13 @@
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:2.3.3'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,4 +24,27 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+// 定义全局版本号
+ext {
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.2'
+    minSdkVersion = 16
+    targetSdkVersion = 26
+    supportLibraryVersion = '26.1.0'
+    versionCode = 1
+    versionName = '1.0.0'
+
+    //lib版本
+    glib_versionCode = 1
+    glib_versionName = '1.0.0'
+
+    supportVersion = "24.2.1"
+
+    var = [
+            support_v7 : 'com.android.support:appcompat-v7:$supportLibraryVersion',
+            support_v4 : 'com.android.support:support-v4:$supportLibraryVersion',
+            recyclerview_v7 : 'com.android.support:recyclerview-v7:$supportLibraryVersion'
+    ]
 }

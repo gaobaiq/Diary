@@ -1,9 +1,9 @@
 package com.gbq.diary.model;
 
 import com.gbq.diary.beans.OkGoRequestDataBean;
-import com.gbq.library.callback.FileCallback;
-import com.gbq.library.callback.JsonCallback;
-import com.gbq.library.network.BaseResponse;
+import com.gbq.diary.callback.JsonCallback;
+import com.gbq.library.beans.BaseResponse;
+import com.lzy.okgo.callback.FileCallback;
 
 import java.io.File;
 import java.util.List;

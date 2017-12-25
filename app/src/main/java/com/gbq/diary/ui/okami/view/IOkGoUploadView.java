@@ -1,6 +1,6 @@
 package com.gbq.diary.ui.okami.view;
 
-import com.gbq.diary.base.BaseView;
+import com.gbq.library.base.BaseView;
 
 /**
  * 类说明：

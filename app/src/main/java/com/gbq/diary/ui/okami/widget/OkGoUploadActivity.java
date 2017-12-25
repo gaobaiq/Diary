@@ -2,6 +2,7 @@ package com.gbq.diary.ui.okami.widget;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.text.format.Formatter;
 import android.util.Log;
 import android.view.View;
@@ -10,12 +11,12 @@ import android.widget.TextView;
 
 import com.gbq.diary.R;
 import com.gbq.diary.base.BaseActivity;
-import com.gbq.diary.ui.okami.presenter.impl.IOkGoUploadPresenterImpl;
+import com.gbq.diary.ui.okami.presenter.impl.OkGoUploadPresenterImpl;
 import com.gbq.diary.ui.okami.view.IOkGoUploadView;
 import com.gbq.diary.utils.GlideImageLoader;
 import com.gbq.diary.widget.customview.NumberProgressBar;
 import com.gbq.diary.widget.toolbar.BaseBar;
-import com.gbq.library.utils.ToastUtils;
+import com.gbq.library.toast.ToastUtils;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
@@ -35,7 +36,7 @@ import static com.gbq.diary.R.id.tvProgress;
  * Author: Kuzan
  * Date: 2017/5/27 15:02.
  */
-public class OkGoUploadActivity extends BaseActivity<IOkGoUploadView, IOkGoUploadPresenterImpl> implements IOkGoUploadView {
+public class OkGoUploadActivity extends BaseActivity<IOkGoUploadView, OkGoUploadPresenterImpl> implements IOkGoUploadView {
 
     @Bind(R.id.toolbar)
     BaseBar mToolbar;
@@ -62,8 +63,13 @@ public class OkGoUploadActivity extends BaseActivity<IOkGoUploadView, IOkGoUploa
     }
 
     @Override
-    protected IOkGoUploadPresenterImpl initPresenter() {
-        return new IOkGoUploadPresenterImpl();
+    protected OkGoUploadPresenterImpl initPresenter() {
+        return new OkGoUploadPresenterImpl();
+    }
+
+    @Override
+    protected int setStatusBarColor() {
+        return ContextCompat.getColor(this, R.color.colorPrimary);
     }
 
     @Override

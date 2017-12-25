@@ -17,4 +17,8 @@
     <string name="title_okgo_json">Json数据解析</string>
     <string name="title_okgo_download">文件下载</string>
     <string name="title_okgo_upload">文件上传</string>
+    <string name="title_tools">常用工具</string>
+    <string name="title_rxjava2">RxJava2</string>
+
+    <string name="title_custom">自定义控件</string>
 </resources>

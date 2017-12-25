@@ -2,28 +2,26 @@ package com.gbq.diary.base;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.gbq.diary.R;
 import com.gbq.diary.widget.toolbar.BaseBar;
-import com.gbq.library.systembar.SystemBarTintManager;
+import com.gbq.library.base.BasePresenter;
+import com.gbq.library.rxbus.Bus;
+import com.gbq.library.rxbus.BusProvider;
+import com.gbq.library.utils.SystemBarUtil;
 import com.gbq.library.widget.dialog.LoadingDialog;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import rx.subscriptions.CompositeSubscription;
+import timber.log.Timber;
 
 /**
  * 类说明：activity基类
@@ -33,7 +31,7 @@ import rx.subscriptions.CompositeSubscription;
 public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
     protected Context mContext;
     protected BaseApplication application = BaseApplication.getInstance();
-    protected CompositeSubscription mySubscriptions;
+    protected Bus mEventBus = BusProvider.getInstance();
     protected T mPresenter;
 
     private List<BaseFragment> fragments;
@@ -51,7 +49,11 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         mContext = this;
         ButterKnife.bind(this);
         application.getAppManager().addActivity(this);
-        mySubscriptions = new CompositeSubscription();
+        // 注册eventBus
+        if (mEventBus == null) {
+            mEventBus = BusProvider.getInstance();
+        }
+        mEventBus.register(this);
 
         mPresenter = initPresenter();
         if (mPresenter != null) {
@@ -107,8 +109,9 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         application.getAppManager().killActivity(this);
 
         // 如果订阅了相关事件，在onDestroy时取消订阅，防止RxJava可能会引起的内存泄漏问题
-        if (!mySubscriptions.isUnsubscribed()) {
-            mySubscriptions.unsubscribe();
+        if (mEventBus != null) {
+            mEventBus.unregister(this);
+            mEventBus = null;
         }
 
         isRunning = false;
@@ -161,47 +164,27 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         ft.commitAllowingStateLoss();
     }
 
-    /**
-     * 子类可以重写改变状态栏颜色
-     * */
-    protected int setStatusBarColor() {
-        return getColorPrimary();
-    }
-
-    /**
-     * 子类可以重写决定是否使用透明状态栏
-     * */
-    protected boolean translucentStatusBar() {
-        return false;
-    }
-
     /** 设置状态栏颜色 */
     protected void initSystemBarTint() {
-        Window window = getWindow();
         if (translucentStatusBar()) {
             // 设置状态栏全透明
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(Color.TRANSPARENT);
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            SystemBarUtil.transparencyStatusBar(this);
+        } else {
+            // 设置状态栏字体颜色为深色
+            if (isStatusBarTextDark()) {
+                if (SystemBarUtil.isSupportStatusBarDarkFont()) {
+                    // 设置状态栏颜色
+                    SystemBarUtil.setStatusBarColor(this, setStatusBarColor(), false, isPaddingStatus());
+                    SystemBarUtil.setStatusBarLightMode(this, true);
+                } else {
+                    Timber.e("当前设备不支持状态栏字体变色");
+                    // 设置状态栏颜色为主题颜色
+                    SystemBarUtil.setStatusBarColor(this, getDarkColorPrimary(), false, isPaddingStatus());
+                }
+            } else {
+                // 设置状态栏颜色
+                SystemBarUtil.setStatusBarColor(this, setStatusBarColor(), false, isPaddingStatus());
             }
-            return;
-        }
-        // 沉浸式状态栏
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //5.0以上使用原生方法
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(setStatusBarColor());
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //4.4-5.0使用三方工具类，有些4.4的手机有问题，这里为演示方便，不使用沉浸式
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            SystemBarTintManager tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setStatusBarTintColor(setStatusBarColor());
         }
     }
 
@@ -248,6 +231,26 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
      * @return presenter
      */
     protected abstract T initPresenter();
+
+    /** 子类可以重写改变状态栏颜色 */
+    protected int setStatusBarColor() {
+        return getColorPrimary();
+    }
+
+    /** 子类可以重写决定是否使用透明状态栏 */
+    protected boolean translucentStatusBar() {
+        return false;
+    }
+
+    /** 子类可以重写决定是否使用状态栏深色字体 */
+    protected boolean isStatusBarTextDark() {
+        return false;
+    }
+
+    /** 子类可以重写决定是否解决状态栏与标题栏重叠问题 */
+    protected boolean isPaddingStatus() {
+        return true;
+    }
 
 
     /**

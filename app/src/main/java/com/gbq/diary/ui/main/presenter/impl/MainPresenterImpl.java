@@ -1,18 +1,18 @@
 package com.gbq.diary.ui.main.presenter.impl;
 
 import com.gbq.diary.R;
-import com.gbq.diary.base.BasePresenter;
 import com.gbq.diary.ui.main.presenter.IMainPresenter;
 import com.gbq.diary.ui.main.view.IMainView;
+import com.gbq.library.base.BasePresenter;
 
 /**
  * 类说明：首页
  * Author: Kuzan
  * Date: 2017/5/25 17:20.
  */
-public class IMainPresenterImpl extends BasePresenter<IMainView> implements IMainPresenter {
+public class MainPresenterImpl extends BasePresenter<IMainView> implements IMainPresenter {
 
-    public IMainPresenterImpl() {
+    public MainPresenterImpl() {
 
     }
 

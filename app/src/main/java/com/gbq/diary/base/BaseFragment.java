@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gbq.library.base.BasePresenter;
+import com.gbq.library.rxbus.Bus;
+import com.gbq.library.rxbus.BusProvider;
 import com.gbq.library.widget.dialog.LoadingDialog;
 
 import butterknife.ButterKnife;
-import rx.subscriptions.CompositeSubscription;
 
 /**
  * 类说明：fragment基类
@@ -22,7 +24,7 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
     protected View mView;
     protected Context mContext;
     protected boolean isInit;
-    protected CompositeSubscription mySubscriptions;
+    protected Bus mEventBus = BusProvider.getInstance();
 
     public T mPresenter;
 
@@ -42,10 +44,6 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
 
         if (mPresenter != null) {
             mPresenter.attach((V) this);
-        }
-
-        if (mySubscriptions == null) {
-            mySubscriptions = new CompositeSubscription();
         }
 
         if (getActivity() instanceof BaseActivity) {
@@ -78,6 +76,12 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
             mView = inflater.inflate(getLayoutId(), container, false);
         }
         ButterKnife.bind(this, mView);
+
+        // 注册eventBus
+        if (mEventBus == null) {
+            mEventBus = BusProvider.getInstance();
+        }
+        mEventBus.register(this);
         return mView;
     }
 
@@ -123,8 +127,9 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
         }
 
         // 如果订阅了相关事件，在onDestroy时取消订阅，防止RxJava可能会引起的内存泄漏问题
-        if (!mySubscriptions.isUnsubscribed()) {
-            mySubscriptions.unsubscribe();
+        if (mEventBus != null) {
+            mEventBus.unregister(this);
+            mEventBus = null;
         }
     }
 

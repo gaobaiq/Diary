@@ -1,19 +1,18 @@
 apply plugin: 'com.android.application'
 
-def buildSdkVersion = 25
-def buildToolVersion = "25.0.0"
-def supportVersion = "24.2.1"
 android {
-    compileSdkVersion buildSdkVersion
-    buildToolsVersion buildToolVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.gbq.diary"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -33,7 +32,7 @@ dependencies {
     // 导入库
     compile project(':Glibrary:library')
     // 首页效果
-    compile 'com.android.support:design:' + supportVersion
+    compile 'com.android.support:design:' + rootProject.ext.supportVersion
     // 封装的webview
     compile 'com.github.lzyzsd:jsbridge:1.0.4'
 
@@ -49,4 +48,8 @@ dependencies {
 repositories {
     // ...
     maven { url "https://jitpack.io" }
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
 }

@@ -5,11 +5,12 @@ import android.view.View;
 
 import com.gbq.diary.R;
 import com.gbq.diary.base.BaseActivity;
-import com.gbq.diary.ui.main.presenter.impl.IMainPresenterImpl;
+import com.gbq.diary.ui.main.presenter.impl.MainPresenterImpl;
 import com.gbq.diary.ui.main.view.IMainView;
 import com.gbq.diary.ui.okami.widget.OkamiActivity;
+import com.gbq.diary.ui.tools.widget.ToolsListActivity;
 import com.gbq.diary.widget.toolbar.BaseBar;
-import com.gbq.library.utils.ToastUtils;
+import com.gbq.library.toast.ToastUtils;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -19,7 +20,7 @@ import butterknife.OnClick;
  * Author: Kuzan    github 地址  https://github.com/gaobaiq
  * Date: 2017/5/25 18:23.
  */
-public class MainActivity extends BaseActivity<IMainView, IMainPresenterImpl> implements IMainView {
+public class MainActivity extends BaseActivity<IMainView, MainPresenterImpl> implements IMainView {
 
     @Bind(R.id.toolbar)
     BaseBar toolbar;
@@ -30,8 +31,8 @@ public class MainActivity extends BaseActivity<IMainView, IMainPresenterImpl> im
     }
 
     @Override
-    protected IMainPresenterImpl initPresenter() {
-        return new IMainPresenterImpl();
+    protected MainPresenterImpl initPresenter() {
+        return new MainPresenterImpl();
     }
 
     @Override
@@ -62,7 +63,7 @@ public class MainActivity extends BaseActivity<IMainView, IMainPresenterImpl> im
 
     @Override
     public void onToolsClick() {
-        ToastUtils.ToastMessage(this, "常用工具");
+        ToolsListActivity.openActivity(this);
     }
 
     @Override

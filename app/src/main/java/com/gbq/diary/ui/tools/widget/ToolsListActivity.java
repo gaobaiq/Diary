@@ -1,10 +1,9 @@
-package com.gbq.diary.ui.okami.widget;
+package com.gbq.diary.ui.tools.widget;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -12,8 +11,8 @@ import com.gbq.diary.R;
 import com.gbq.diary.adapter.PositionAdapter;
 import com.gbq.diary.base.BaseActivity;
 import com.gbq.diary.beans.PositionBean;
-import com.gbq.diary.ui.okami.presenter.impl.OkamiPresenterImpl;
-import com.gbq.diary.ui.okami.view.IOkamiView;
+import com.gbq.diary.ui.tools.presenter.impl.ToolsListPresenterImpl;
+import com.gbq.diary.ui.tools.view.IToolsListView;
 import com.gbq.diary.widget.customview.HeadView;
 import com.gbq.diary.widget.toolbar.BaseBar;
 import com.gbq.library.pullrefresh.PullRefreshRecyclerView;
@@ -24,14 +23,14 @@ import com.gbq.library.toast.ToastUtils;
 import java.util.List;
 
 import butterknife.Bind;
+import timber.log.Timber;
 
 /**
- * 类说明：大神杰作
+ * 类说明：常用工具列表
  * Author: Kuzan
- * Date: 2017/5/26 11:37.
+ * Date: 2017/12/25 10:41.
  */
-public class OkamiActivity extends BaseActivity<IOkamiView, OkamiPresenterImpl> implements IOkamiView {
-
+public class ToolsListActivity extends BaseActivity<IToolsListView, ToolsListPresenterImpl> implements IToolsListView {
 
     @Bind(R.id.toolbar)
     BaseBar mToolbar;
@@ -46,8 +45,8 @@ public class OkamiActivity extends BaseActivity<IOkamiView, OkamiPresenterImpl> 
     }
 
     @Override
-    protected OkamiPresenterImpl initPresenter() {
-        return new OkamiPresenterImpl();
+    protected ToolsListPresenterImpl initPresenter() {
+        return new ToolsListPresenterImpl();
     }
 
     @Override
@@ -57,7 +56,12 @@ public class OkamiActivity extends BaseActivity<IOkamiView, OkamiPresenterImpl> 
 
     @Override
     protected void initViewAndData() {
-        mToolbar.setTitle(R.string.title_okami);
+        mToolbar.setTitle(R.string.title_tools);
+
+        initListView();
+    }
+
+    private void initListView() {
         PullRefreshUtil.setRefresh(mListData, true, false);
         final HeadView headView = new HeadView(this);
         mListData.setHead(headView);
@@ -82,10 +86,6 @@ public class OkamiActivity extends BaseActivity<IOkamiView, OkamiPresenterImpl> 
         mPresenter.loadData();
     }
 
-    public static void openActivity(Context context) {
-        context.startActivity(new Intent(context, OkamiActivity.class));
-    }
-
     @Override
     public void replaceList(List<PositionBean> beans) {
         if (isRunning && beans != null && mAdapter != null) {
@@ -105,7 +105,7 @@ public class OkamiActivity extends BaseActivity<IOkamiView, OkamiPresenterImpl> 
         if (isShow) {
             ToastUtils.ToastMessage(this, errMsg);
         } else {
-            Log.e("TAG", errMsg);
+            Timber.e("TAG", errMsg);
         }
     }
 
@@ -113,9 +113,13 @@ public class OkamiActivity extends BaseActivity<IOkamiView, OkamiPresenterImpl> 
         if (bean != null) {
             switch (bean.getType()) {
                 case POSITION_0:
-                    OkGoActivity.openActivity(this);
+                    RxJava2Activity.openActivity(this);
                     break;
             }
         }
+    }
+
+    public static void openActivity(Context context) {
+        context.startActivity(new Intent(context, ToolsListActivity.class));
     }
 }

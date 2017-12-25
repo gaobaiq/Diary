@@ -1,7 +1,7 @@
 package com.gbq.diary.ui.okami.view;
 
-import com.gbq.diary.base.BaseView;
 import com.gbq.diary.beans.PositionBean;
+import com.gbq.library.base.BaseView;
 
 import java.util.List;
 
