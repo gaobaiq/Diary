@@ -64,8 +64,44 @@
             android:label="@string/title_tools"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.tools.widget.RxJava2Activity"
+            android:name=".ui.tools.widget.RxJavaActivity"
             android:label="@string/title_rxjava2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxBaseActivity"
+            android:label="@string/title_rxbase"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxSchedulersActivity"
+            android:label="@string/title_rxschedulers"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxCreateActivity"
+            android:label="@string/title_rxcreate"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxMapActivity"
+            android:label="@string/title_rxmap"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxFilterActivity"
+            android:label="@string/title_rxfilter"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxMergeActivity"
+            android:label="@string/title_rxmerge"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxTimerActivity"
+            android:label="@string/title_rxtimer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxOtherActivity"
+            android:label="@string/title_rxother"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tools.widget.RxDoActivity"
+            android:label="@string/title_rxdo"
             android:screenOrientation="portrait" />
     </application>
 

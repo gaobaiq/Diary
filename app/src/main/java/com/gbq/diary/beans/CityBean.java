@@ -9,6 +9,15 @@ public class CityBean {
     long id;
     String name;
 
+    public CityBean() {
+
+    }
+
+    public CityBean(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }

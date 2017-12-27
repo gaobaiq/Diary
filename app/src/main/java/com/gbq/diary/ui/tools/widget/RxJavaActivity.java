@@ -11,8 +11,8 @@ import com.gbq.diary.R;
 import com.gbq.diary.adapter.PositionAdapter;
 import com.gbq.diary.base.BaseActivity;
 import com.gbq.diary.beans.PositionBean;
-import com.gbq.diary.ui.tools.presenter.impl.ToolsListPresenterImpl;
-import com.gbq.diary.ui.tools.view.IToolsListView;
+import com.gbq.diary.ui.tools.presenter.impl.RxJavaPresenterImpl;
+import com.gbq.diary.ui.tools.view.IRxJavaView;
 import com.gbq.diary.widget.customview.HeadView;
 import com.gbq.diary.widget.toolbar.BaseBar;
 import com.gbq.library.pullrefresh.PullRefreshRecyclerView;
@@ -26,12 +26,11 @@ import butterknife.Bind;
 import timber.log.Timber;
 
 /**
- * 类说明：常用工具列表
+ * 类说明：RxJava操作符页面列表
  * Author: Kuzan
- * Date: 2017/12/25 10:41.
+ * Date: 2017/12/25 11:28.
  */
-public class ToolsListActivity extends BaseActivity<IToolsListView, ToolsListPresenterImpl> implements IToolsListView {
-
+public class RxJavaActivity extends BaseActivity<IRxJavaView, RxJavaPresenterImpl> implements IRxJavaView {
     @Bind(R.id.toolbar)
     BaseBar mToolbar;
     @Bind(R.id.list_data)
@@ -45,8 +44,8 @@ public class ToolsListActivity extends BaseActivity<IToolsListView, ToolsListPre
     }
 
     @Override
-    protected ToolsListPresenterImpl initPresenter() {
-        return new ToolsListPresenterImpl();
+    protected RxJavaPresenterImpl initPresenter() {
+        return new RxJavaPresenterImpl();
     }
 
     @Override
@@ -56,7 +55,7 @@ public class ToolsListActivity extends BaseActivity<IToolsListView, ToolsListPre
 
     @Override
     protected void initViewAndData() {
-        mToolbar.setTitle(R.string.title_tools);
+        mToolbar.setTitle(R.string.title_rxjava2);
 
         initListView();
     }
@@ -113,13 +112,37 @@ public class ToolsListActivity extends BaseActivity<IToolsListView, ToolsListPre
         if (bean != null) {
             switch (bean.getType()) {
                 case POSITION_0:
-                    RxJavaActivity.openActivity(this);
+                    RxBaseActivity.openActivity(this);
+                    break;
+                case POSITION_1:
+                    RxSchedulersActivity.openActivity(this);
+                    break;
+                case POSITION_2:
+                    RxCreateActivity.openActivity(this);
+                    break;
+                case POSITION_3:
+                    RxMapActivity.openActivity(this);
+                    break;
+                case POSITION_4:
+                    RxFilterActivity.openActivity(this);
+                    break;
+                case POSITION_5:
+                    RxMergeActivity.openActivity(this);
+                    break;
+                case POSITION_6:
+                    RxTimerActivity.openActivity(this);
+                    break;
+                case POSITION_7:
+                    RxOtherActivity.openActivity(this);
+                    break;
+                case POSITION_8:
+                    RxDoActivity.openActivity(this);
                     break;
             }
         }
     }
 
     public static void openActivity(Context context) {
-        context.startActivity(new Intent(context, ToolsListActivity.class));
+        context.startActivity(new Intent(context, RxJavaActivity.class));
     }
 }

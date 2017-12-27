@@ -11,8 +11,8 @@ import com.gbq.library.adapter.recyclerview.CommonRecyclerAdapter;
  * Author: Kuzan
  * Date: 2017/12/25 11:36.
  */
-public class RxJava2ResultAdapter extends CommonRecyclerAdapter<String> {
-    public RxJava2ResultAdapter(Context context) {
+public class RxJavaResultAdapter extends CommonRecyclerAdapter<String> {
+    public RxJavaResultAdapter(Context context) {
         super(context);
     }
 

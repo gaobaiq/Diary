@@ -60,6 +60,28 @@ public class AddressUtil {
         bean.setCityList(cityList);
         list.add(bean);
 
+        cityList = new ArrayList<>();
+        cityBean = new CityBean();
+        cityBean.setId(10007L);
+        cityBean.setName("玄武区");
+        cityList.add(cityBean);
+
+        cityBean = new CityBean();
+        cityBean.setId(10008L);
+        cityBean.setName("鼓楼区");
+        cityList.add(cityBean);
+
+        cityBean = new CityBean();
+        cityBean.setId(10009L);
+        cityBean.setName("建邺区");
+        cityList.add(cityBean);
+
+        bean = new ProvinceBean();
+        bean.setId(11003L);
+        bean.setName("南京市");
+        bean.setCityList(cityList);
+        list.add(bean);
+
         return list;
     }
 }

@@ -15,7 +15,18 @@ public enum PositionType {
     POSITION_6(6),
     POSITION_7(7),
     POSITION_8(8),
-    POSITION_9(9);
+    POSITION_9(9),
+    POSITION_10(10),
+    POSITION_11(11),
+    POSITION_12(12),
+    POSITION_13(13),
+    POSITION_14(14),
+    POSITION_15(15),
+    POSITION_16(16),
+    POSITION_17(17),
+    POSITION_18(18),
+    POSITION_19(19),
+    POSITION_20(20);
 
 
     private int type;
@@ -47,6 +58,28 @@ public enum PositionType {
                 return POSITION_8;
             case 9:
                 return POSITION_9;
+            case 10:
+                return POSITION_10;
+            case 11:
+                return POSITION_11;
+            case 12:
+                return POSITION_12;
+            case 13:
+                return POSITION_13;
+            case 14:
+                return POSITION_14;
+            case 15:
+                return POSITION_15;
+            case 16:
+                return POSITION_16;
+            case 17:
+                return POSITION_17;
+            case 18:
+                return POSITION_18;
+            case 19:
+                return POSITION_19;
+            case 20:
+                return POSITION_20;
             default:
                 return POSITION_0;
         }

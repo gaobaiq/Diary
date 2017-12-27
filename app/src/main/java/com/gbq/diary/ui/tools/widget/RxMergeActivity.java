@@ -11,11 +11,11 @@ import android.widget.AdapterView;
 
 import com.gbq.diary.R;
 import com.gbq.diary.adapter.PositionAdapter;
-import com.gbq.diary.adapter.RxJava2ResultAdapter;
+import com.gbq.diary.adapter.RxJavaResultAdapter;
 import com.gbq.diary.base.BaseActivity;
 import com.gbq.diary.beans.PositionBean;
-import com.gbq.diary.ui.tools.presenter.impl.RxJava2PresenterImpl;
-import com.gbq.diary.ui.tools.view.IRxJava2View;
+import com.gbq.diary.ui.tools.presenter.impl.RxMergePresenterImpl;
+import com.gbq.diary.ui.tools.view.IRxResultView;
 import com.gbq.diary.widget.toolbar.BaseBar;
 import com.gbq.library.toast.ToastUtils;
 
@@ -26,11 +26,11 @@ import butterknife.Bind;
 import timber.log.Timber;
 
 /**
- * 类说明：
+ * 类说明：Rx Merge组合操作符
  * Author: Kuzan
- * Date: 2017/12/25 11:28.
+ * Date: 2017/12/26 10:34.
  */
-public class RxJava2Activity extends BaseActivity<IRxJava2View, RxJava2PresenterImpl> implements IRxJava2View {
+public class RxMergeActivity extends BaseActivity<IRxResultView, RxMergePresenterImpl> implements IRxResultView {
     @Bind(R.id.toolbar)
     BaseBar mToolbar;
     @Bind(R.id.list_result)
@@ -38,17 +38,17 @@ public class RxJava2Activity extends BaseActivity<IRxJava2View, RxJava2Presenter
     @Bind(R.id.list_event)
     RecyclerView mListEvent;
 
-    private RxJava2ResultAdapter mResultAdapter;
+    private RxJavaResultAdapter mResultAdapter;
     private PositionAdapter mAdapter;
 
     @Override
     protected int initLayout() {
-        return R.layout.activity_rxjava2;
+        return R.layout.activity_rxjava_result;
     }
 
     @Override
-    protected RxJava2PresenterImpl initPresenter() {
-        return new RxJava2PresenterImpl();
+    protected RxMergePresenterImpl initPresenter() {
+        return new RxMergePresenterImpl();
     }
 
     @Override
@@ -58,14 +58,14 @@ public class RxJava2Activity extends BaseActivity<IRxJava2View, RxJava2Presenter
 
     @Override
     protected void initViewAndData() {
-        mToolbar.setTitle(R.string.title_rxjava2);
+        mToolbar.setTitle(R.string.title_rxmerge);
         initResultList();
         initEventList();
     }
 
     private void initResultList() {
         mListResult.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        mResultAdapter = new RxJava2ResultAdapter(this);
+        mResultAdapter = new RxJavaResultAdapter(this);
         mListResult.setAdapter(mResultAdapter);
     }
 
@@ -116,7 +116,7 @@ public class RxJava2Activity extends BaseActivity<IRxJava2View, RxJava2Presenter
     }
 
     public static void openActivity(Context context) {
-        context.startActivity(new Intent(context, RxJava2Activity.class));
+        context.startActivity(new Intent(context, RxMergeActivity.class));
     }
 
     @Override

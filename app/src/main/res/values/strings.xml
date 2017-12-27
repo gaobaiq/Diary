@@ -19,6 +19,15 @@
     <string name="title_okgo_upload">文件上传</string>
     <string name="title_tools">常用工具</string>
     <string name="title_rxjava2">RxJava2</string>
+    <string name="title_rxbase">RxJava2 基本使用</string>
+    <string name="title_rxschedulers">RxJava2 线程调度</string>
+    <string name="title_rxcreate">RxJava2 事件产生操作符</string>
+    <string name="title_rxmap">RxJava2 Map转换操作符</string>
+    <string name="title_rxfilter">RxJava2 Filter过滤操作符</string>
+    <string name="title_rxmerge">RxJava2 Merge组合操作符</string>
+    <string name="title_rxtimer">RxJava2 Timer时间操作符</string>
+    <string name="title_rxother">RxJava2 其他操作符</string>
+    <string name="title_rxdo">RxJava2 Do辅助操作符</string>
 
     <string name="title_custom">自定义控件</string>
 </resources>
